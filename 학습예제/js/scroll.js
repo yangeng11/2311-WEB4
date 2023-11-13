@@ -1,0 +1,1 @@
+const advantage = document.getElementById(`advantages-container`)

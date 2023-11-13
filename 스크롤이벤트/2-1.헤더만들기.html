@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            height: 5000px;
+        }
+        header {
+            height: 100px;
+            background-color: pink;
+            position: fixed;
+            width: 100%;
+            top : 0;
+            transition: 0.5s;
+        }
+        header.hide {
+            transform: translateY(-100%);
+            /* hide 추가 시 translateY 적용 -> 헤더가 사라지는 기능(100% 위로 올린다)*/
+        }
+    </style>
+</head>
+<body>
+    <header>
+        
+    </header>
+    <script>
+        // 아래로 내리면 헤더가 사라지고 올리면 헤더가 나타나는 기능
+    
+        const header = document.querySelector(`header`)
+        let posY = 0;
+        
+        window.addEventListener(`scroll`, (e)=>{
+            if(posY < window.scrollY) {
+                // header.classList.add(`hide`)
+                헤더숨기기()
+            } else{
+                // header.classList.remove(`hide`)
+                헤더보이기()
+            }
+            posY = window.scrollY;
+        })
+
+        function 헤더숨기기() {
+            header.classList.add(`hide`)
+        }
+
+        function 헤더보이기() {
+            header.classList.remove(`hide`)
+        }
+
+    </script>
+    
+</body>
+</html>

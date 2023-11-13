@@ -1,0 +1,39 @@
+/* 헤더가 숨었을때 */
+header.hide {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+/* 스크롤했들때 헤더 */
+header.scrolled {
+    background-color: #ffffffdb;
+    border-bottom: 1px solid #aaaaaa80;
+}
+
+header.scrolled .st0 {
+    fill :var(--main-color);
+    /* css에서도 변수를 선언할 수 있다. --main-color -> 변수를 받아서 쓸수있음 */
+} 
+
+header.scrolled .hamberger::after,
+header.scrolled .hamberger::before {
+/* 쉼표는 and 라는 뜻 두개에게 다 주겠다는 뜻 */
+    background-color: var(--main-color);
+}
+
+
+/* 메인컨텐츠 숨기기(오른쪽으로 살짝 이동시키고 투명하게 */
+.advantage {
+    /* opacity: 0; */
+    transform: 1s;
+    transform: translateX(50px);
+}
+
+.advantage.active {
+    opacity: 1;
+    transform: none;
+}
+
+/* '함께하고 있습니다.' 오른쪽에 파란 평행사변형 이동시키기 */
+.incline.active {
+    transform: translateX(50px);
+}
