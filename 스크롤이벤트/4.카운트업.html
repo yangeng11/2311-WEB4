@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id = count>0</p>
+    <script>
+    const count = document.getElementById('count')
+    const goal = 9210000;
+    const 지속시간 = 2000;
+    const fps = 60;
+    const 재생횟수 = 지속시간/1000 * fps;
+    const ㅎㅎ = goal / 재생횟수;
+    let nowCount = 0;
+
+
+    for (let i = 0; i < 재생횟수; i++) {
+        setTimeout(() => {
+            nowCount += ㅎㅎ;
+            // nowCount = 10000 + nowcount; 축약작성법
+            count.innerText = `${nowCount}`
+        }, 1000/fps*i);
+    }
+
+    function easeOutCubic(x) {
+    return 1 - Math.pow(1 - x, 3);
+    }
+
+
+
+ 
+    </script>
+</body>
+</html>

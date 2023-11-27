@@ -22,18 +22,51 @@ header.scrolled .hamberger::before {
 
 
 /* 메인컨텐츠 숨기기(오른쪽으로 살짝 이동시키고 투명하게 */
-.advantage {
-    /* opacity: 0; */
-    transform: 1s;
-    transform: translateX(50px);
+.scroll-inter {
+    opacity: 0;
+    transition: 1s;
+    transform: translateX(-50px);
 }
 
-.advantage.active {
+.scroll-inter.active {
     opacity: 1;
     transform: none;
 }
 
 /* '함께하고 있습니다.' 오른쪽에 파란 평행사변형 이동시키기 */
-.incline.active {
-    transform: translateX(50px);
+#start-together > .incline.active {
+    left: 80%;
+    transform: skewX(-30deg);
+    transition: 1s;
+}
+
+/* 앱 다운로드 버튼 */
+
+#app-download > .incline {
+    transition: 1s;
+    transform: skewX(-30deg) translateX(120%);
+    transition-delay: 0.8s;
+}
+
+#app-download > figure {
+    transition: 1s;
+    opacity: 0;
+}
+
+#app-download > p {
+    transition: 1s;
+    opacity: 0;
+}
+
+#app-download.active > .incline { 
+/* 앱 다운로더에 액티브를 추가하면 인클라인에 변화를 주겠다는 작성법 */
+    transform: skewX(-30deg) translateX(20px);
+}
+
+#app-download.active > figure {
+    opacity: 1;
+}
+
+#app-download.active > p {
+    opacity: 1;
 }

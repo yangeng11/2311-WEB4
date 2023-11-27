@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        .obj {
+            position: absolute;
+            transform: translate(-50%,-50%);
+        }
+
+        .me {
+            width: 50px;
+            height: 50px;
+            background-color: green;
+            border-radius: 50%;
+
+            top: 50%;
+            left: 45%;
+        }
+
+        .enemy {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            border-radius: 50%;
+
+            top: 50%;
+            left: 50%;
+        }
+    </style>
+</head>
+<body>
+    <!-- 컨텐츠 사이의 충돌감지를 확인할 수 있는 요소(ex. 게임 적과 내 캐릭터가 싸울때 충돌 감지) -->
+    <div class="me obj"></div>
+    <div class="enemy obj"></div>
+
+    <script>
+        const me = document.querySelector('.me');
+        const enemy = document.querySelector('.enemy');
+
+
+        
+        setInterval(() => {
+            // settimeout의 친구 => ex)시간적 간격 a와 b사이의 수행이 50초 간격으로 이루어져야 한다 => 즉, 간격을 기준으로 반복 재생된다.
+            const mePos = me.getBoundingClientRect();
+            const enemyPos = enemy.getBoundingClientRect();
+            // getBoundingClinentRect => 좌표값을 찾는 요소
+            const 충돌거리 = enemyPos.width/2 + mePos.width/2
+            // 반지름 + 반지름 = 충돌거리를 알 수 있다.
+            const myCenter = mePos.left + mePos.width/2
+            // mePos.left는 왼쪽 좌표와 반지름을 더해서 브라우저 상의 중심 좌표값을 구할 수 있다.(중심좌표)
+            const enemyCenter = enemyPos.left + enemyPos.width/2
+            // enemyPos.left는 왼쪽 좌표와 반지름을 더해서 브라우저 상의 중심 좌표값을 구할 수 있다.(중심좌표)
+            const 적과나의거리 = Math.abs(myCenter - enemyCenter);
+            // abs => 절대값, 음수와 양수 상관 없이 모두 양수로 처리하겠다는 뜻(ex, -10  0  10 0에서 얼마나 떨어져있는지 거리를 측정하는 값
+            // -75~75를 파악하는 것보다는 75이하를 파악하는것이 더 깔끔하다.
+
+            // 충돌거리와 개체사이의 거리를 비교해 충돌감지 실행
+            if(적과나의거리 <= 충돌거리){
+                console.log('충돌했어요')
+            }else {
+                console.log('고요합니다')
+            }
+        }, 1000/60);
+
+
+    </script>
+</body>
+</html>

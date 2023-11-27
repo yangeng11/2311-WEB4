@@ -282,7 +282,7 @@ footer nav {
     }
     
     .incline {
-        transform: translateX(86%) skewX(-30deg);
+        transform: translateX(86%) skewX(-30deg);        
     }
     
     #app-download {
